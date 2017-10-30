@@ -23,6 +23,7 @@ public class RegisterServlet extends HttpServlet {
         String dayOfBirth = req.getParameter("dayOfBirth");
 
 
+
         Optional<User> userByEmail = UserRepository.findUserByEmail(email);
 
         HashMap<String, String> errors = new HashMap<>();

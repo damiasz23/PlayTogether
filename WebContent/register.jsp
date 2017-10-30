@@ -1,5 +1,6 @@
 
 <%@ page import="java.util.HashMap" %>
+<%@ page import="playTogether.*" %>
 <%@ page language="java" contentType="text/html; harset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -53,12 +54,23 @@
                     <p>${error.get("password")}</p>
                     <input type="password" id="inputPassword2" name="passwordRepeat" class="form-control" placeholder="Password repeat" required>
                     <p>${error.get("passwordRepeat")}</p>
-                    <input type="text" id="nickName" value="${variable.get("nickName")}"  name="nickName" class="form-control" placeholder="nickName" required>
+                    <input type="text" id="nickName" value="${variable.get("nickName")}"  name="nickName" class="form-control" placeholder="Nick Name" required>
                     <p>${error.get("nickName")}</p>
+
+                    <select class="form-control" name="position">
+                        <c:forEach var="position" items="${Position.values()}">
+                            <c:if test="${player.position.equals(position)}">
+                                <option value="${position}" selected="selected">${position}</option>
+                            </c:if>
+                            <c:if test="${!player.position.equals(position)}">
+                                <option value="${position}">${position}</option>
+                            </c:if>
+                        </c:forEach>
+                    </select>
+
                     <label>Day if birth</label>
                     <input type="date" id="dayOfBirth" name="dayOfBirth" class="form-control">
                     <p>${error.get("dayOfBirth")}</p>
-                    <label>Licence car day</label>
 
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign up</button>
 

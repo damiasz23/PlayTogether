@@ -2,7 +2,6 @@ package playTogether;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -13,14 +12,16 @@ public class Player {
 
     private String nickName;
     private LocalDateTime birthday;
+    private Position position;
 
 
     public Player() {
     }
 
-    public Player(String nickName, LocalDateTime birthday) {
+    public Player(String nickName, LocalDateTime birthday, Position position) {
         this.nickName = nickName;
         this.birthday = birthday;
+        this.position = position;
     }
 
     public int getId() {
@@ -45,5 +46,13 @@ public class Player {
 
     public void setBirthday(LocalDateTime birthday) {
         this.birthday = birthday;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
     }
 }

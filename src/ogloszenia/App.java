@@ -4,6 +4,7 @@ import ogloszeniar.hibernate.util.HibernateUtil;
 import playTogether.Player;
 import playTogether.User;
 import playTogether.repositorys.PlayerRepository;
+import playTogether.repositorys.UserRepository;
 
 import java.time.LocalDateTime;
 
@@ -15,7 +16,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         HibernateUtil.openSession();
 
-        User user = new User("dam@op.pl", "1234");
+        UserRepository userRepository = new UserRepository();
+
 
 
     }
